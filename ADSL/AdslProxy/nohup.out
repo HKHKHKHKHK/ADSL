@@ -1,0 +1,92 @@
+ADSL API Listening on 8000
+Traceback (most recent call last):
+  File "api.py", line 7, in <module>
+    server(redis=redis)
+  File "/ADSL/AdslProxy/adslproxy/api.py", line 51, in server
+    tornado.ioloop.IOLoop.instance().start()
+  File "/usr/lib64/python3.5/site-packages/tornado/platform/asyncio.py", line 132, in start
+    self.asyncio_loop.run_forever()
+  File "/usr/lib64/python3.5/asyncio/base_events.py", line 421, in run_forever
+    self._run_once()
+  File "/usr/lib64/python3.5/asyncio/base_events.py", line 1389, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/usr/lib64/python3.5/selectors.py", line 445, in select
+    fd_event_list = self._epoll.poll(timeout, max_ev)
+KeyboardInterrupt
+ERROR:tornado.application:Uncaught exception GET /names (180.159.42.227)
+HTTPServerRequest(protocol='http', host='132.232.182.231:8000', method='GET', uri='/names', version='HTTP/1.1', remote_ip='180.159.42.227')
+Traceback (most recent call last):
+  File "/usr/lib64/python3.5/site-packages/tornado/web.py", line 1590, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/ADSL/AdslProxy/adslproxy/api.py", line 26, in get
+    result = self.redis.names()
+  File "/ADSL/AdslProxy/adslproxy/db.py", line 56, in names
+    return self.db.hkeys(self.proxy_key)
+  File "/usr/lib/python3.5/site-packages/redis/client.py", line 1981, in hkeys
+    return self.execute_command('HKEYS', name)
+  File "/usr/lib/python3.5/site-packages/redis/client.py", line 667, in execute_command
+    connection.send_command(*args)
+  File "/usr/lib/python3.5/site-packages/redis/connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/usr/lib/python3.5/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/usr/lib/python3.5/site-packages/redis/connection.py", line 493, in connect
+    self.on_connect()
+  File "/usr/lib/python3.5/site-packages/redis/connection.py", line 561, in on_connect
+    if nativestr(self.read_response()) != 'OK':
+  File "/usr/lib/python3.5/site-packages/redis/connection.py", line 629, in read_response
+    raise response
+redis.exceptions.ResponseError: Client sent AUTH, but no password is set
+ERROR:tornado.access:500 GET /names (180.159.42.227) 69.94ms
+ERROR:tornado.application:Uncaught exception GET /names (180.159.42.227)
+HTTPServerRequest(protocol='http', host='132.232.182.231:8000', method='GET', uri='/names', version='HTTP/1.1', remote_ip='180.159.42.227')
+Traceback (most recent call last):
+  File "/usr/lib64/python3.5/site-packages/tornado/web.py", line 1590, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/ADSL/AdslProxy/adslproxy/api.py", line 26, in get
+    result = self.redis.names()
+  File "/ADSL/AdslProxy/adslproxy/db.py", line 56, in names
+    return self.db.hkeys(self.proxy_key)
+  File "/usr/lib/python3.5/site-packages/redis/client.py", line 1981, in hkeys
+    return self.execute_command('HKEYS', name)
+  File "/usr/lib/python3.5/site-packages/redis/client.py", line 667, in execute_command
+    connection.send_command(*args)
+  File "/usr/lib/python3.5/site-packages/redis/connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/usr/lib/python3.5/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/usr/lib/python3.5/site-packages/redis/connection.py", line 493, in connect
+    self.on_connect()
+  File "/usr/lib/python3.5/site-packages/redis/connection.py", line 561, in on_connect
+    if nativestr(self.read_response()) != 'OK':
+  File "/usr/lib/python3.5/site-packages/redis/connection.py", line 629, in read_response
+    raise response
+redis.exceptions.ResponseError: Client sent AUTH, but no password is set
+ERROR:tornado.access:500 GET /names (180.159.42.227) 1.55ms
+ERROR:tornado.application:Uncaught exception GET /random (180.159.42.227)
+HTTPServerRequest(protocol='http', host='132.232.182.231:8000', method='GET', uri='/random', version='HTTP/1.1', remote_ip='180.159.42.227')
+Traceback (most recent call last):
+  File "/usr/lib64/python3.5/site-packages/tornado/web.py", line 1590, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/ADSL/AdslProxy/adslproxy/api.py", line 21, in get
+    result = self.redis.random()
+  File "/ADSL/AdslProxy/adslproxy/db.py", line 70, in random
+    proxies = self.proxies()
+  File "/ADSL/AdslProxy/adslproxy/db.py", line 63, in proxies
+    return self.db.hvals(self.proxy_key)
+  File "/usr/lib/python3.5/site-packages/redis/client.py", line 2020, in hvals
+    return self.execute_command('HVALS', name)
+  File "/usr/lib/python3.5/site-packages/redis/client.py", line 667, in execute_command
+    connection.send_command(*args)
+  File "/usr/lib/python3.5/site-packages/redis/connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/usr/lib/python3.5/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/usr/lib/python3.5/site-packages/redis/connection.py", line 493, in connect
+    self.on_connect()
+  File "/usr/lib/python3.5/site-packages/redis/connection.py", line 561, in on_connect
+    if nativestr(self.read_response()) != 'OK':
+  File "/usr/lib/python3.5/site-packages/redis/connection.py", line 629, in read_response
+    raise response
+redis.exceptions.ResponseError: Client sent AUTH, but no password is set
+ERROR:tornado.access:500 GET /random (180.159.42.227) 1.52ms

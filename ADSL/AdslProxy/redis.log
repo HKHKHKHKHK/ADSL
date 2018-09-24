@@ -1,0 +1,3 @@
+tcp        0      0 0.0.0.0:6379            0.0.0.0:*               LISTEN      15976/redis-server  
+tcp        0      0 172.27.0.5:6379         180.159.42.227:3917     ESTABLISHED 15976/redis-server  
+tcp6       0      0 :::6379                 :::*                    LISTEN      15976/redis-server  
