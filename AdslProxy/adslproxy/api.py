@@ -12,11 +12,12 @@ class MainHandler(RequestHandler):
     
     def get(self, api=''):
         if not api:
-            links = ['random', 'proxies', 'names', 'all', 'count']
+            links = ['random', 'proxies', 'names', 'all', 'count', 'first', 'second']
             self.write('<h4>Welcome to ADSL Proxy API</h4>')
             for link in links:
                 self.write('<a href=' + link + '>' + link + '</a><br>')
-        
+
+
         if api == 'random':
             result = self.redis.random()
             if result:
