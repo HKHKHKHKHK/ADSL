@@ -36,13 +36,22 @@ class Sender():
         :param proxy: 代理
         :return: 测试结果
         """
+        headers =  {'Accept': 'text/html, application/xhtml+xml, image/jxr, */*',
+               'Accept - Encoding':'gzip, deflate',
+               'Accept-Language':'zh-Hans-CN, zh-Hans; q=0.5',
+               'Connection':'Keep-Alive',
+               'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36 Edge/15.15063'}
+
         try:
-            response = requests.get(TEST_URL, proxies={
+            response = requests.get(TEST_URL, headers = headers, proxies={
                 'http': 'http://' + proxy,
                 'https': 'https://' + proxy
             }, timeout=TEST_TIMEOUT)
             if response.status_code == 200:
                 return True
+            else:
+                print ('response_code is', response.status_code)
+                return False
         except (ConnectionError, ReadTimeout):
             return False
 
