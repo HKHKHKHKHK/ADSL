@@ -64,13 +64,14 @@ systemctl stop firewalld.service
 
 ### 3.安装Python3
 
-#### CentOS
+#### CentOS3.5
 
 ```
-sudo yum groupinstall -y development tools
-sudo yum install -y epel-release python34-devel  libxslt-devel libxml2-devel openssl-devel
-sudo yum install -y python34 python34-setuptools
-sudo easy_install-3.4 pip
+sudo yum install -y https://centos7.iuscommunity.org/ius-release.rpm
+sudo yum update
+sudo yum install -y python35u python35u-libs python35u-devel python35u-pip
+
+
 ```
 
 #### Ubuntu
