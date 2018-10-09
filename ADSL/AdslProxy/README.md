@@ -145,6 +145,7 @@ python3 run.py
 
 ```
 (python3 run.py > /dev/null &)
+nohup python3.5 -u run.py > test.log 2>&1 &
 ```
 
 ## 程序使用
