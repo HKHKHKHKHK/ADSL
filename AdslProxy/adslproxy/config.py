@@ -1,6 +1,6 @@
 # coding=utf-8
 # 拨号间隔
-ADSL_CYCLE = 50
+ADSL_CYCLE = 60
 
 # 拨号出错重试间隔
 ADSL_ERROR_CYCLE = 5
@@ -18,7 +18,7 @@ CLIENT_NAME = 'adsl1'
 ADSL_IFNAME = 'ppp0'
 
 # Redis数据库IP
-REDIS_HOST = 'localhost'
+REDIS_HOST = '54.255.234.23'
 
 # Redis数据库密码, 如无则填None
 REDIS_PASSWORD = 'foobared'
